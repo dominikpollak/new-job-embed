@@ -1,3 +1,4 @@
+import { Cardano } from 'lucid-cardano'
 import { ButtonHTMLAttributes } from 'react'
 
 export const AT_BUTTON_VARIANT = {
@@ -6,6 +7,7 @@ export const AT_BUTTON_VARIANT = {
   TERTIARY: 'tertiary',
 } as const
 export type AtButtonVariant = keyof typeof AT_BUTTON_VARIANT
+type Lol = Cardano
 
 export const variantClasses: Record<AtButtonVariant, string> = {
   PRIMARY: 'bg-green-200 hover:bg-green-400 active:bg-green-500',

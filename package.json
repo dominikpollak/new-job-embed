@@ -1,7 +1,7 @@
 {
   "name": "new-job-embed",
   "private": false,
-  "version": "1.0.0",
+  "version": "1.0.1",
   "packageManager": "pnpm@8.4.0",
   "repository": {
     "type": "git",
@@ -32,6 +32,8 @@
     "prepare": "husky install"
   },
   "dependencies": {
+    "@jamonbread/sdk": "^1.2.4",
+    "lucid-cardano": "^0.10.10",
     "react": "18.2.0",
     "react-dom": "18.2.0"
   },
