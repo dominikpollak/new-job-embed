@@ -1,7 +1,7 @@
 {
-  "name": "vite-component-library-template",
+  "name": "new-job-embed",
   "private": false,
-  "version": "2.0.4",
+  "version": "1.0.0",
   "packageManager": "pnpm@8.4.0",
   "repository": {
     "type": "git",
@@ -19,7 +19,7 @@
     "./dist/style.css": "./dist/style.css"
   },
   "engines": {
-    "node": "18"
+    "node": ">=18"
   },
   "scripts": {
     "dev": "storybook dev -p 6006",
@@ -29,8 +29,7 @@
     "prettier": "prettier --write \"src/**/*.{ts,tsx,js,mdx}\"",
     "test": "vitest",
     "test:cov": "vitest run --coverage",
-    "prepare": "husky install",
-    "prepack": "json -f package.json -I -e \"delete this.devDependencies; delete this.dependencies\""
+    "prepare": "husky install"
   },
   "dependencies": {
     "react": "18.2.0",
