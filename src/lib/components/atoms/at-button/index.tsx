@@ -1,5 +1,6 @@
-import { Cardano } from 'lucid-cardano'
-import { ButtonHTMLAttributes } from 'react'
+import { JamOnBreadProvider } from '@jamonbread/sdk'
+import { Lucid } from 'lucid-cardano'
+import { ButtonHTMLAttributes, useEffect } from 'react'
 
 export const AT_BUTTON_VARIANT = {
   PRIMARY: 'primary',
@@ -7,7 +8,6 @@ export const AT_BUTTON_VARIANT = {
   TERTIARY: 'tertiary',
 } as const
 export type AtButtonVariant = keyof typeof AT_BUTTON_VARIANT
-type Lol = Cardano
 
 export const variantClasses: Record<AtButtonVariant, string> = {
   PRIMARY: 'bg-green-200 hover:bg-green-400 active:bg-green-500',
@@ -22,6 +22,17 @@ export interface AtButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 }
 
 export const AtButton = ({ label, variant = 'PRIMARY', isDisabled = false, onClick }: AtButtonProps) => {
+  useEffect(() => {
+    ;(async () => {
+      const apiUrl = 'https://api.jamonbread.io/api/'.replace(/^\/+|\/+$/g, '')
+      const wallet = typeof window !== 'undefined' ? window.cardano?.['nami'] : undefined
+      const walletApi = await wallet?.enable()
+      const provider = new JamOnBreadProvider(`${apiUrl}/lucid`)
+      const lucid = await Lucid.new(provider, 'Mainnet')
+      console.log(lucid, walletApi)
+    })()
+  }, [])
+
   return (
     <button
       className={`transition-colors px-6 py-2 rounded-md ${variantClasses[variant]} ${

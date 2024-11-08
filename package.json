@@ -1,7 +1,7 @@
 {
   "name": "new-job-embed",
   "private": false,
-  "version": "1.0.1",
+  "version": "1.0.2",
   "packageManager": "pnpm@8.4.0",
   "repository": {
     "type": "git",
@@ -33,9 +33,23 @@
   },
   "dependencies": {
     "@jamonbread/sdk": "^1.2.4",
+    "assert": "^2.1.0",
+    "browserify-fs": "^1.0.0",
+    "buffer": "^6.0.3",
+    "crypto-browserify": "^3.12.1",
+    "esbuild": "^0.24.0",
+    "events": "^3.3.0",
+    "https-browserify": "^1.0.0",
     "lucid-cardano": "^0.10.10",
+    "os-browserify": "^0.3.0",
+    "path-browserify": "^1.0.1",
     "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "react-dom": "18.2.0",
+    "stream-browserify": "^3.0.0",
+    "stream-http": "^3.2.0",
+    "url": "^0.11.4",
+    "util": "^0.12.5",
+    "vite-plugin-commonjs": "^0.10.3"
   },
   "devDependencies": {
     "@babel/core": "7.22.10",

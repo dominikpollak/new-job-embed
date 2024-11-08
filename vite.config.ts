@@ -26,15 +26,19 @@ const app = async (): Promise<UserConfigExport> => {
         plugins: [tailwindcss],
       },
     },
+    esbuild: {
+      target: 'esnext',
+    },
     build: {
+      target: 'esnext',
       lib: {
         entry: path.resolve(__dirname, 'src/lib/index.ts'),
         name: formattedName,
-        formats: ['es', 'umd'],
+        formats: ['es'],
         fileName: (format) => `${formattedName}.${format}.js`,
       },
       rollupOptions: {
-        external: ['react', 'lucid-cardano', '@jamonbread/sdk', 'react/jsx-runtime', 'react-dom', 'tailwindcss'],
+        external: ['react', 'react/jsx-runtime', 'react-dom', 'tailwindcss'],
         output: {
           globals: {
             react: 'React',
@@ -42,12 +46,18 @@ const app = async (): Promise<UserConfigExport> => {
             'react-dom': 'ReactDOM',
             tailwindcss: 'tailwindcss',
           },
+          format: 'es',
         },
       },
     },
     test: {
       globals: true,
       environment: 'jsdom',
+    },
+    resolve: {
+      alias: {
+        'lucid-cardano': '/node_modules/lucid-cardano/web/mod.js',
+      },
     },
   })
 }
